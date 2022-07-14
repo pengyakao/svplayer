@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+*::before,*::after{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --green: #1B7F7A;
+    --lightgreen:#4CABA6;
+    --navyblue:#0897B4;
+    --skincolor:#F2CDAC;
+    --white:#ffffff;
+    --darkwhite:#cecaca;
+    --greenshadow:#a4e0dd;
+    --lightbshadow:rgba(0,0,0,0.15);
+    --pink:#F9595F;
+    --ggrey:#707070;
+    --grey:#272727;
+    --dark:#222222;
+} 
+
+body{
+    background: var(--grey);
+    color: var(--white);
+}
+
+nav{
+    width: 100%;
+    height: 100px;
+    padding-top: 70px;
+    outline:1px solid #F9595F;
+}
+
+
+#playing{
+    font-size: 20px;
+    color: var(--pink);
+    font-weight: bolder;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    /* outline:1px solid #67f77a; */
+}
+
+div.show_type{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    /* outline:1px solid #67f77a; */
+    
+}
+
+div.show_type button{
+    color: var(--darkwhite);
+    font-weight: bold;
+    font-size: 20px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+#list-btn{
+    color: var(--pink);
+}
+
+div.left{
+    width: 50%;
+    height: 90vh;
+    padding-top: 30px;
+    /* outline:1px solid #ffd153; */
+    float: left;
+}
+
+div.right{
+    width: 50%;
+    height: 90vh;
+    padding-top: 30px;
+    /* outline:1px solid #f067a7; */
+    float: right;
+}
+
+
+/* 播放列表 */
+.muisic_list{
+    height:95%;
+    overflow-y: auto;
+    /* outline:2px solid #7e0eff; */
+    display:block;
+}
+.muisic_list::-webkit-scrollbar{
+    width:0 ;
+}
+
+/* 歌詞 */
+div.music_lyrics{
+    position: absolute;
+    color: var(--darkwhite);
+    height: 80%;
+    overflow-y: auto;
+    top: 10%;
+    margin-left: 40px;
+    display: none;
+}
+.music_lyrics::-webkit-scrollbar{
+    width:0 ;
+}
+div.music_lyrics p{
+    padding-top: 10px;
+    opacity: 0.7;
+}
+
+div.song_details{
+    width: 400px;
+    margin:20px auto;
+}
+
+div.song_img{
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin:0px auto;
+    box-shadow:0px 6px 15px  var(--lightbshadow);
+}
+
+div.song_img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+div.song_and_singer{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight:600;
+    width: 400px;
+    margin:0px auto;
+    align-items: center;
+    /* outline:1px solid #f067a7; */
+}
+
+div.song_and_singer .singer{
+    font-size: 18px;
+    opacity: 0.8;
+}
+i{
+    cursor: pointer;  
+}
+
+.progress-area{
+    margin: 10px 0;
+    height: 6px;
+    width: 100%;
+    border-radius: 50px ;
+    cursor: pointer;  
+    background:var(--ggrey);
+}
+.progress-area .progress-bar{
+    height: inherit;
+    width: 0%;
+    position: relative;
+    border-radius: inherit ;
+    background: var(--pink);
+}
+.progress-bar::before{
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: black;
+    border-radius: inherit ;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    background:inherit ;
+    opacity: 0;
+    /* 時間軸轉場動畫 */
+    transition: opacity 0.2s ease;
+}
+/* 時間軸轉場動畫 */
+.progress-area:hover .progress-bar::before{
+    opacity:1;
+}
+.progress-area .timer{
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+} 
+.timer span{
+    font-size: 13px;
+    color: var(--darkwhite);
+}
+.controls{
+    margin: 40px 0 5px 0;
+    display: flex;
+    justify-content: space-around;
+    /* outline:1px solid #f067a7; */
+    align-items: center; 
+}
+
+.controls i{
+    font-size: 30px;
+    user-select: none;
+    background:var(--white);
+    /* 直接給顏色就好 */
+    /* color:var(--green); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.controls #play{
+    font-size: 50px;
+}
+
+
+li{
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-right: 40px;
+    position:relative;
+    cursor: pointer;  
+    list-style-type:none;
+    font-size: 18px;
+    color: var(--darkwhite);
+    border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+li span.list_singer{
+    position:relative;
+    font-size: 13px;
+    opacity: 0.7;
+    font-weight:bolder ;
+}
+div.muisic_list li i {
+    font-size:30px;
+    position:absolute;
+    right: 50px;
+    bottom: 15px;
+}
+
+

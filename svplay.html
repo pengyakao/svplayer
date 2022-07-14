@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./svplayer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>SV Music Player</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <span id="playing">正在播放</span>
+            <div class="song_details">
+                <div class="song_img">
+                    <img src="" alt="">
+                </div>
+                <div class="song_and_singer">
+                    <span class="song">被你遺忘的森林</span><br>
+                    <span class="singer">原子邦妮</span>
+                </div>
+                <!-- 播放進度條 -->
+                <div class="progress-area">
+                    <div class="progress-bar">
+                    </div>
+                    <div class="timer">
+                        <span class="current">0:00</span>
+                        <span class="duration">3:27</span>
+                    </div>
+                    <!-- audio 標籤 +controls自動生成撥放器 -->
+                    <audio id="main-audio" src=""></audio>
+                </div>
+                <!-- 播放功能列 -->
+                <div class="controls">
+                    <i id="loop_mode" class="material-icons" title="Playlist looped">repeat</i>
+                    <i id="prev" class="material-icons">skip_previous</i>
+                    <div class="play_pause">
+                        <i id="play" class="material-icons">play_arrow</i>
+                    </div>
+                    <i id="next" class="material-icons">skip_next</i>
+                    <i id="favorite" class="material-icons" onclick="favoritebtn()">favorite_border</i>
+                </div>
+            </div>
+        </div>
+        <!-- 右側 -->
+        <div class="right">
+            <div class="show_type">
+                <span><button onclick="listbtn()" id="list-btn">列表</button></span>
+                <span><button onclick="lyricsbtn()" id="lyrics-btn">歌詞</button></span>
+            </div>
+            <!-- 播放列表 -->
+            <div class="muisic_list">
+                </ul>
+                <li id="list1" li-Index="1">
+                    <span class="list_song">被你遺忘的森林</span><br>
+                    <span class="list_singer">原子邦妮</span>
+                    <span><i id="list_favorite_1" class="material-icons">favorite_border</i></span>
+                </li>
+                <li id="list2" li-index="2">
+                    <span class="list_song">在這座城市遺失了你</span><br>
+                    <span class="list_singer">告五人</span>
+                    <i id="list_favorite_2" class="material-icons">favorite</i>
+                </li>
+                <li id="list3" li-index="3">
+                    <span class="list_song">暗流</span><br>
+                    <span class="list_singer">拍謝少年 Sorry Youth</span>
+                    <i id="list_favorite_3" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list4" li-index="4">
+                    <span class="list_song">長途夜車</span><br>
+                    <span class="list_singer">滅火器 Fire EX.</span>
+                    <i id="list_favorite_4" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list5" li-index="5">
+                    <span class="list_song">街仔路雨落袂停</span><br>
+                    <span class="list_singer">鄭宜農 feat 陳嫺靜</span>
+                    <i id="list_favorite_5" class="material-icons">favorite</i>
+                </li>
+                <li id="list6" li-index="6">
+                    <span class="list_song">後照鏡</span><br>
+                    <span class="list_singer">怕胖團</span>
+                    <i id="list_favorite_6" class="material-icons">favorite</i>
+                </li>
+                <li id="list7" li-index="7">
+                    <span class="list_song">遠行</span><br>
+                    <span class="list_singer">Yellow 黃宣</span>
+                    <i id="list_favorite_7" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list8" li-index="8">
+                    <span class="list_song">藍色的你</span><br>
+                    <span class="list_singer">宇宙人</span>
+                    <i id="list_favorite_8" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list9" li-index="9">
+                    <span class="list_song">在這個年代，我們不浪漫</span><br>
+                    <span class="list_singer">溫室雜草</span>
+                    <i id="list_favorite_9" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list10" li-index="10">
+                    <span class="list_song">終究還是因為愛</span><br>
+                    <span class="list_singer">THASH</span>
+                    <i id="list_favorite_10" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list11" li-index="11">
+                    <span class="list_song">對不起我做不到答應了你的事</span><br>
+                    <span class="list_singer">康士坦的變化球</span>
+                    <i id="list_favorite_11" class="material-icons">favorite_border</i>
+                </li>
+                <li id="list12" li-index="12">
+                    <span class="list_song">夜走</span><br>
+                    <span class="list_singer">打倒三明治</span>
+                    <i id="list_favorite_12" class="material-icons">favorite_border</i>
+                </li>
+                </ul>
+            </div>
+            <!-- 歌詞 -->
+            <div class="music_lyrics">
+                <h3 class="lyrics-title"></h3>
+                <p class="lyrics-text"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./player_lyrics.js"></script>
+    <script src="./svplay.js"></script>
+</body>
+
+</html>
