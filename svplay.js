@@ -12,6 +12,8 @@ var progressBar = wrapper.querySelector(".progress-bar"); //進度條
 var lyricsTitle = wrapper.querySelector(".lyrics-title"); //歌詞標題
 var lyricsText = wrapper.querySelector(".lyrics-text"); //歌詞
 var favoriteIcon = wrapper.querySelector("#favorite"); //我的最愛狀態
+var width = document.documentElement.scrollWidth;
+// console.log(width);
 
 var musicIndex = 1;
 
@@ -20,11 +22,11 @@ window.addEventListener("load", () => {
     playingNow();
     // console.log(lyricsTitle,lyricsText);
     loadLyrics(musicIndex);
-    console.log(musicName,musicSinger,musicImg,mainAudio);
+    console.log(musicName, musicSinger, musicImg, mainAudio);
 });
 
 // load music function
-function loadMusic(indexNumb){
+function loadMusic(indexNumb) {
     musicName.innerText = allMusic[indexNumb - 1].song_name;
     musicSinger.innerText = allMusic[indexNumb - 1].singer;
     musicImg.src = `img/${allMusic[indexNumb - 1].img}.jpg`;  // 資料夾路徑
@@ -33,24 +35,24 @@ function loadMusic(indexNumb){
 };
 
 // 切換歌詞
-function loadLyrics(a){
+function loadLyrics(a) {
     lyricsTitle.innerText = allLyrics[a - 1].lyrics_title;
     lyricsText.innerHTML = allLyrics[a - 1].lyrics_text;
 }
 
 // get favorite icon
-function favoritebtn(){
+function favoritebtn() {
     var FavId = `list_favorite_${musicIndex}`// 取得目前歌曲ID
     var getFavBtn = wrapper.querySelector(`#${FavId}`);  //取得目前狀態
     var getFavText = getFavBtn.innerText;
     // console.log(FavId); //list_favorite_12
     // console.log(getFavBtn); //
     // console.log(getFavText); //favorite_border
-    if(getFavText != 'favorite_border'){
+    if (getFavText != 'favorite_border') {
         wrapper.querySelector(`#${FavId}`).innerText = "favorite_border";
         favoriteIcon.innerText = "favorite_border";
     }
-    else{
+    else {
         wrapper.querySelector(`#${FavId}`).innerText = "favorite";
         favoriteIcon.innerText = "favorite";
     };
@@ -195,24 +197,24 @@ mainAudio.addEventListener("ended", function () {
 });
 
 // 換顏色
-function chcolor(x){
-    document.getElementById(x).style.color='#F9595F';
+function chcolor(x) {
+    document.getElementById(x).style.color = '#F9595F';
 };
 // 換回原本顏色
-function chcolored(x){
-    document.getElementById(x).style.color='#cecaca';
+function chcolored(x) {
+    document.getElementById(x).style.color = '#cecaca';
 };
 
-function playingNow(){
-    for (var j = 1; j <= allMusic.length; j++){
+function playingNow() {
+    for (var j = 1; j <= allMusic.length; j++) {
         var listNum = wrapper.querySelector(`#list${j}`);
         var listNumber = listNum.id;
-        if (listNumber != `list${musicIndex}`){
+        if (listNumber != `list${musicIndex}`) {
             listNum.classList.remove("playing");
             chcolored(listNumber);
             console.log(listNumber);
         };
-        if(listNumber == `list${musicIndex}` ){
+        if (listNumber == `list${musicIndex}`) {
             listNum.classList.add("playing");
             console.log(`現在播放${j}`);
             chcolor(listNumber);
@@ -223,7 +225,7 @@ function playingNow(){
 
 
 //點擊清單播放
-function clicked(element){
+function clicked(element) {
     var getLiIndex = element.getAttribute("li-index");
     console.log(getLiIndex);
     musicIndex = getLiIndex;
@@ -234,22 +236,26 @@ function clicked(element){
     loadLyrics(musicIndex);
 };
 
+//右側
 // 查看播放列表
-function listbtn(){
+function listbtn() {
     wrapper.querySelector(".muisic_list").style.display = "block";
     wrapper.querySelector("#list-btn").style.color = "#F9595F";
     wrapper.querySelector(".music_lyrics").style.display = "none";
     wrapper.querySelector("#lyrics-btn").style.color = "#cecaca";
 };
 
+
 // 查看歌詞
-function lyricsbtn(){
+function lyricsbtn() {
     wrapper.querySelector(".muisic_list").style.display = "none";
     wrapper.querySelector("#list-btn").style.color = "#cecaca";
     wrapper.querySelector(".music_lyrics").style.display = "block";
     wrapper.querySelector("#lyrics-btn").style.color = "#F9595F";
 
 };
+
+
 
 
 

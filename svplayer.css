@@ -38,16 +38,19 @@ nav{
     outline:1px solid #F9595F;
 }
 
+#left_btns{
+    margin: 0 40px;
+    display: flex;
+}
 
-#playing{
+#playing,#list,#lyrics{
     font-size: 20px;
-    color: var(--pink);
+    color: var(--darkwhite);
     font-weight: bolder;
     width: 50%;
     margin: auto;
     display: flex;
     justify-content: center;
-    /* outline:1px solid #67f77a; */
 }
 
 div.show_type{
@@ -59,7 +62,7 @@ div.show_type{
     
 }
 
-div.show_type button{
+div.show_type button,#playing,#list,#lyrics{
     color: var(--darkwhite);
     font-weight: bold;
     font-size: 20px;
@@ -67,10 +70,13 @@ div.show_type button{
     border: 0;
     cursor: pointer;
 }
-#list-btn{
+#list-btn,#playing{
     color: var(--pink);
 }
 
+#list,#lyrics{
+    display: none;
+}
 div.left{
     width: 50%;
     height: 90vh;
@@ -101,11 +107,11 @@ div.right{
 
 /* 歌詞 */
 div.music_lyrics{
-    position: absolute;
+    /* position: absolute; */
     color: var(--darkwhite);
     height: 80%;
     overflow-y: auto;
-    top: 10%;
+    margin-top: 30px;
     margin-left: 40px;
     display: none;
 }
@@ -249,3 +255,15 @@ div.muisic_list li i {
 }
 
 
+@media (max-width: 900px) {
+    div.left{
+        width: 100%;
+        height: 90vh;
+        padding-top: 30px;
+        /* outline:1px solid #ffd153; */
+        float: left;
+    }
+    div.right{
+        width: 100%;
+    }
+}
